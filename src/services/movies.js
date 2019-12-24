@@ -24,5 +24,6 @@ const getPopular = () => {
 
 export default { 
 	getFiltered, 
-	getPopular 
+	getPopular,
+	getSingleMovie 
 }

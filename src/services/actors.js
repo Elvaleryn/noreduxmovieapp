@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = `https://api.themoviedb.org/3/movie/`
+const baseUrl = `https://api.themoviedb.org/3/movie`
 
 /*  const MOVIE_DB_IMAGE_URL = {
 	small: "https://image.tmdb.org/t/p/w185",

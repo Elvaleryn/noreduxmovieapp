@@ -3,23 +3,21 @@ import {
 	BrowserRouter as Router,
 	Route, Link
 } from 'react-router-dom'
-import Filter from '../components/Filter'
 
+const Movies = ({ movies, filter, handleFilterChange }) => {
 
-const Movies = ({movies, handleFilterChange, filter}) => {
+	const moviesToShow =  movies.filter(movie => movie.title.toLowerCase().includes(filter.toLowerCase()))
 	
-	const imgURL = 'https://image.tmdb.org/t/p/w185';
-	const moviesToShow = ({ movies, filter }) => {
-		return movies.results.filter(movie => movie.title.toLowerCase().includes(filter.toLowerCase()))
-}
-	const show = moviesToShow.map(movie =>	
-		<Link to={`/search/${movie.id}`}>	<li key={movie.id}>{movie.title} {movie.vote_average}</li> </Link>
+	const show = moviesToShow.map(movie =>
+		<Link to={`/${movie.id}`}>	<li key={movie.id}>{movie.title} {movie.vote_average}</li> </Link>
 	)
 
 	return (
 		<div>
-				<Filter filter={filter} handleFilterChange={handleFilterChange}/>
-				{show}
+			<div>
+            Filter <input value={filter} onChange={handleFilterChange} />
+        </div>
+			{show}
 		</div>
 	)
 }
