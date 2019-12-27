@@ -1,17 +1,17 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import moviesService from './services/movies'
-import actorsService from './services/actors'
 import Movies from './components/Movies'
 import PopularMovies from './components/PopularMovies'
-import Menu from './components/Menu'
 import Movie from './components/Movie'
-import Filter from './components/Filter'
+import Navbars from './components/Navbars'
+
 
 import {
 	BrowserRouter as Router,
 	Route, Link, Redirect, withRouter, Switch
 } from 'react-router-dom'
+import { Container } from 'react-bootstrap'
 
 const App = () => {
 
@@ -53,31 +53,31 @@ const App = () => {
 
 	if (filter.length === 0) {
 		return (
-			<div>
-				<h2>Movieapp</h2>
+			<Container>
 				<Router>
-
+					<Navbars />
 					<Route exact path="/" render={() =>
 						<PopularMovies popular={popular} filter={filter} handleFilterChange={handleFilterChange} />
 					} />
 					<Route exact path="/:id" render={({ match }) => <Movie ids={popularById(match.params.id)} />} />
 				</Router>
-			</div>
+			</Container>
 		)
 	}
 
 	return (
-		<div>
-			<h2>Movieapp</h2>
+		<Container>
+
+
 			<Router>
-				
+				<Navbars />
 				<Route exact path="/" render={() =>
 					<Movies movies={movies} filter={filter} handleFilterChange={handleFilterChange} />
 				} />
-					<Route exact path="/:id" render={  ({ match }) =><Movie ids={movieById(match.params.id)}/> 	
-				}/>
+				<Route exact path="/:id" render={({ match }) => <Movie ids={movieById(match.params.id)} />
+				} />
 			</Router>
-		</div>
+		</Container>
 	)
 }
 
