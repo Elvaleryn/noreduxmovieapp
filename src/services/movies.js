@@ -11,19 +11,19 @@ const singleMovieUrl = `https://api.themoviedb.org/3/movie`
   }; */
 
 const getFiltered = (filter) => {
-    return axios.get(baseUrl + filter)
+  return axios.get(baseUrl + filter)
 }
 
 const getSingleMovie = (id) => {
-	return axios.get(`${singleMovieUrl}/${id}?api_key=a316805afebbc5d83353daf1e0c1cc4b&language=en-US`)
+  return axios.get(`${singleMovieUrl}/${id}?api_key=a316805afebbc5d83353daf1e0c1cc4b&language=en-US`)
 }
 
 const getPopular = () => {
-	return axios.get(popularUrl)
+  return axios.get(popularUrl)
 }
 
-export default { 
-	getFiltered, 
-	getPopular,
-	getSingleMovie 
+export default {
+  getFiltered,
+  getPopular,
+  getSingleMovie
 }

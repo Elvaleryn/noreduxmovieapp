@@ -9,9 +9,9 @@ const baseUrl = `https://api.themoviedb.org/3/movie`
   }; */
 
 const getActors = (id) => {
-	return axios.get(`${baseUrl}/${id}/credits?api_key=a316805afebbc5d83353daf1e0c1cc4b`)
+  return axios.get(`${baseUrl}/${id}/credits?api_key=a316805afebbc5d83353daf1e0c1cc4b`)
 }
 
-export default { 
-	getActors
+export default {
+  getActors
 }
